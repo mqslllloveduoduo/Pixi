@@ -6,13 +6,13 @@ WORKDIR /usr/src/pixi/web
 COPY package.json /usr/src/pixi/web
 COPY package-lock.json /usr/src/pixi/web
 
-RUN npm install --save
-RUN npm install --save express 
+RUN npm install --save --registry=https://registry.npmmirror.com
+RUN npm install --save express --registry=https://registry.npmmirror.com
 
 COPY . /usr/src/pixi/web
 COPY uploads/ /usr/src/pixi/web/uploads/
 
-RUN npm install --unsafe-perm -g nodemon@1.11.0
+RUN npm install --unsafe-perm -g nodemon@1.11.0 --registry=https://registry.npmmirror.com
 
 EXPOSE 8000
 CMD ["nodemon", "/usr/src/pixi/web/server.js"]
