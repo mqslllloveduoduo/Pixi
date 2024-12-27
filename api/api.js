@@ -587,7 +587,7 @@ app.get('/api/user/pictures', api_token_check, function(req, res){
 
 
 app.get('/api/user/likes', api_token_check, function(req, res){
-	console.log('like id ' + req.user._id);
+	console.log('user id ' + req.user.user._id);
 	mongo.connect('mongodb://pixidb:27017/Pixidb', function(err, db){
 	db.collection('likes').find({ user_id : req.user.user._id}).toArray(function(err, likes){
 		if(err) { return err };
