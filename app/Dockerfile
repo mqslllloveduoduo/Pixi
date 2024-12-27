@@ -6,7 +6,6 @@ WORKDIR /usr/src/pixi/web
 COPY package.json /usr/src/pixi/web
 COPY package-lock.json /usr/src/pixi/web
 
-RUN npm cache clean --force
 RUN npm install --save --registry=https://registry.npmmirror.com
 RUN npm install --save express --registry=https://registry.npmmirror.com
 
